@@ -1,0 +1,29 @@
+import bs4, requests
+
+def getAmazonTitle(productUrl):
+
+    res = requests.get(productUrl)
+    res.raise_for_status()
+
+    soup = bs4.BeautifulSoup(res.text, 'html.parser')
+
+    elems = soup.select('#productTitle')
+
+    return elems[0].text.strip()
+
+product = getAmazonTitle('productUrl')
+print('Product = ' + product)
+
+def getAmazonPrice(productUrl):
+    
+    res = requests.get(productUrl)
+    res.raise_for_status()
+
+    soup = bs4.BeautifulSoup(res.text, 'html.parser')
+
+    elems = soup.select('#price_inside_buybox')
+
+    return elems[0].text.strip()
+
+price = getAmazonPrice('productUrl')
+print('Cost = ' + price)
