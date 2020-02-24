@@ -13,7 +13,7 @@ def getAmazonTitle(productUrl):
 
     return elems[0].text.strip()
 
-product = getAmazonTitle('productUrl')
+product = getAmazonTitle('#INSERTPRODUCTURL')
 print('Product = ' + product)
 
 def getAmazonPrice(productUrl):
@@ -27,5 +27,5 @@ def getAmazonPrice(productUrl):
 
     return elems[0].text.strip()
 
-price = getAmazonPrice('productUrl')
+price = getAmazonPrice('#INSERTPRODUCTURL')
 print('Cost = ' + price)
